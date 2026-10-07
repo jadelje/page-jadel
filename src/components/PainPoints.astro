@@ -1,0 +1,86 @@
+---
+const painPoints = [
+  "Los despliegues todavía son manuales.",
+  "Tenemos servidores pero nadie se encarga de ellos.",
+  "AWS está costando demasiado.",
+  "No sabemos si nuestros backups realmente funcionan.",
+  "Nuestra aplicación se cae y no sabemos por qué.",
+  "Necesitamos CI/CD pero no sabemos por dónde empezar.",
+  "Nuestro equipo desarrolla software pero necesita apoyo con infraestructura.",
+  "Necesitamos Kubernetes pero no tenemos experiencia interna.",
+  "Necesitamos un DevOps, pero no queremos contratar uno de tiempo completo.",
+];
+---
+
+<section class="pain-points" id="problemas">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">¿Te suena familiar?</span>
+      <h2 class="section-title">¿Esto te está pasando?</h2>
+      <p class="section-subtitle">
+        Si alguno de estos escenarios se parece a tu situación, podemos ayudarte.
+      </p>
+    </div>
+
+    <ul class="pain-grid" role="list">
+      {painPoints.map((point) => (
+        <li class="pain-card">
+          <span class="pain-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            </svg>
+          </span>
+          <p class="pain-text">{point}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .pain-points {
+    background: var(--bg-secondary);
+  }
+
+  .pain-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .pain-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .pain-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .pain-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .pain-card:hover {
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  .pain-icon {
+    flex-shrink: 0;
+    color: #f87171;
+    margin-top: 0.125rem;
+  }
+
+  .pain-text {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+</style>

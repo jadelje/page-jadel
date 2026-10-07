@@ -1,0 +1,132 @@
+---
+const faqs = [
+  {
+    question: "¿Trabajan con empresas pequeñas?",
+    answer: "Sí, trabajamos con startups, pymes y equipos de desarrollo que necesitan apoyo con infraestructura Cloud y DevOps, sin importar su tamaño.",
+  },
+  {
+    question: "¿Necesito contratar un DevOps de tiempo completo?",
+    answer: "No. Podemos trabajar por proyecto, por horas o mediante un esquema mensual de DevOps bajo demanda. Pagas solo por lo que realmente necesitas.",
+  },
+  {
+    question: "¿Trabajan con AWS?",
+    answer: "Sí, tenemos experiencia con los principales servicios de AWS: EC2, RDS, S3, EKS, Lambda, CloudFront, Route 53, IAM, entre otros.",
+  },
+  {
+    question: "¿Pueden ayudarnos con Kubernetes?",
+    answer: "Sí, desde la implementación inicial hasta soporte continuo y optimización. Trabajamos con Kubernetes en AWS (EKS), en VPS y en entornos on-premise.",
+  },
+  {
+    question: "¿Pueden revisar nuestros costos Cloud?",
+    answer: "Sí, la revisión y optimización de costos Cloud es parte del Diagnóstico Cloud. Identificamos recursos subutilizados, configuraciones incorrectas y oportunidades de ahorro.",
+  },
+  {
+    question: "¿Pueden implementar CI/CD?",
+    answer: "Sí, implementamos pipelines CI/CD con GitHub Actions, GitLab CI, y otras herramientas. Seguimos buenas prácticas de automatización y seguridad.",
+  },
+  {
+    question: "¿Trabajan remotamente?",
+    answer: "Sí, trabajamos 100% de forma remota. Nos coordinamos por videollamada, chat y herramientas colaborativas, sin importar la ubicación.",
+  },
+];
+---
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+      <p class="section-subtitle">
+        Todo lo que necesitas saber antes de comenzar.
+      </p>
+    </div>
+
+    <div class="faq-list" role="list">
+      {faqs.map((faq, i) => (
+        <details class="faq-item" name="faq-accordion">
+          <summary class="faq-question" role="listitem">
+            <span>{faq.question}</span>
+            <span class="faq-chevron" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    background: var(--bg-secondary);
+  }
+
+  .faq-list {
+    max-width: 760px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  .faq-item[open] {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    list-style: none;
+    user-select: none;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question:hover {
+    color: var(--accent-light);
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .faq-answer p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    padding-top: 1rem;
+  }
+</style>

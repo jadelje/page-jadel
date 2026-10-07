@@ -1,0 +1,140 @@
+---
+import { whatsappLink } from '../utils/whatsapp';
+const waLink = whatsappLink("Hola, quisiera saber más sobre el servicio de DevOps bajo demanda.");
+
+const benefits = [
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+    title: "Sin costo fijo alto",
+    description: "Pagas solo por lo que necesitas. Sin salario, prestaciones ni costo de contratación.",
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    title: "Disponibilidad inmediata",
+    description: "Comenzamos a trabajar rápidamente sin curva de aprendizaje de integración.",
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+    title: "Flexibilidad total",
+    description: "Por proyecto, por horas o mensual. Ajustamos según tus necesidades.",
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+    title: "Experiencia especializada",
+    description: "AWS, Kubernetes, Docker, CI/CD y más. Experiencia real en producción.",
+  },
+];
+---
+
+<section class="on-demand" id="devops-demanda">
+  <div class="container">
+    <div class="on-demand__inner">
+      <div class="on-demand__content">
+        <span class="section-label">DevOps bajo demanda</span>
+        <h2 class="section-title">
+          ¿Necesitas un DevOps pero no quieres contratar uno de tiempo completo?
+        </h2>
+        <p>
+          Contratar un DevOps senior de tiempo completo puede costar entre $5 y $12 millones COP al mes, más prestaciones y proceso de selección. ¿Realmente lo necesitas full-time?
+        </p>
+        <p class="mt">
+          Con nuestro servicio de <strong>DevOps bajo demanda</strong> tienes acceso a experiencia especializada en Cloud, Kubernetes, CI/CD, automatización y más, pagando solo por lo que realmente necesitas.
+        </p>
+        <a href={waLink} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          Hablar con un especialista
+        </a>
+      </div>
+
+      <div class="on-demand__benefits">
+        {benefits.map((b) => (
+          <div class="benefit-item">
+            <span class="benefit-icon" aria-hidden="true" set:html={b.icon}></span>
+            <div>
+              <h3 class="benefit-title">{b.title}</h3>
+              <p class="benefit-desc">{b.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .on-demand {
+    background: var(--bg-secondary);
+  }
+
+  .on-demand__inner {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1024px) {
+    .on-demand__inner {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+
+  .on-demand__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .on-demand__content p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .mt { margin-top: 0.25rem; }
+
+  .on-demand__content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .on-demand__content .btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .on-demand__benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .benefit-item {
+    display: flex;
+    gap: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .benefit-item:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .benefit-icon {
+    flex-shrink: 0;
+    color: var(--accent-light);
+    margin-top: 0.125rem;
+  }
+
+  .benefit-title {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .benefit-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+</style>

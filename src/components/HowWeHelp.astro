@@ -1,0 +1,121 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Diagnóstico",
+    description: "Revisamos tu infraestructura actual: costos, seguridad, disponibilidad, backups y configuraciones críticas. Identificamos oportunidades de mejora.",
+  },
+  {
+    number: "02",
+    title: "Implementación",
+    description: "Ejecutamos los cambios necesarios con mínima interrupción: migraciones, configuración de servicios, despliegue de herramientas y buenas prácticas.",
+  },
+  {
+    number: "03",
+    title: "Automatización",
+    description: "Automatizamos despliegues, backups, pruebas y procesos repetitivos. CI/CD, infraestructura como código y pipelines personalizados.",
+  },
+  {
+    number: "04",
+    title: "Monitoreo",
+    description: "Configuramos alertas, dashboards y observabilidad para detectar problemas antes de que afecten a tus usuarios.",
+  },
+  {
+    number: "05",
+    title: "Soporte",
+    description: "Acompañamiento continuo para resolver incidentes, responder consultas y adaptarnos a los cambios de tu infraestructura.",
+  },
+];
+---
+
+<section class="how-we-help" id="como-ayudamos">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Proceso</span>
+      <h2 class="section-title">Cómo podemos ayudarte</h2>
+      <p class="section-subtitle">
+        Un proceso claro y estructurado para llevar tu infraestructura al siguiente nivel.
+      </p>
+    </div>
+
+    <div class="steps">
+      {steps.map((step, i) => (
+        <div class="step">
+          <div class="step__left">
+            <div class="step__number" aria-hidden="true">{step.number}</div>
+            {i < steps.length - 1 && <div class="step__connector" aria-hidden="true"></div>}
+          </div>
+          <div class="step__content">
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__description">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    max-width: 720px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .step__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 3rem;
+  }
+
+  .step__number {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--accent-light);
+    flex-shrink: 0;
+  }
+
+  .step__connector {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    margin-block: 0.25rem;
+    min-height: 2rem;
+  }
+
+  .step__content {
+    padding-bottom: 2.5rem;
+  }
+
+  .step:last-child .step__content {
+    padding-bottom: 0;
+  }
+
+  .step__title {
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .step__description {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+</style>
