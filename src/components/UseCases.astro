@@ -1,0 +1,125 @@
+---
+import { whatsappLink } from '../utils/whatsapp';
+
+const cases = [
+  {
+    problem: "Tengo una aplicación y no sé cómo desplegarla",
+    solution: "CI/CD + Docker + Cloud",
+    message: "Hola, tengo una aplicación y necesito ayuda con el despliegue.",
+  },
+  {
+    problem: "AWS me está costando demasiado",
+    solution: "Auditoría + optimización de costos",
+    message: "Hola, quisiera una auditoría de costos en AWS.",
+  },
+  {
+    problem: "Me preocupa perder la información",
+    solution: "Backups automatizados + recuperación",
+    message: "Hola, necesito implementar backups seguros para mi empresa.",
+  },
+  {
+    problem: "Mi equipo necesita ayuda con infraestructura",
+    solution: "DevOps bajo demanda",
+    message: "Hola, nuestro equipo necesita soporte con infraestructura.",
+  },
+  {
+    problem: "Necesito Kubernetes para mi aplicación",
+    solution: "Implementación + soporte Kubernetes",
+    message: "Hola, necesito implementar Kubernetes para mi aplicación.",
+  },
+  {
+    problem: "Quiero automatizar mis despliegues",
+    solution: "CI/CD + GitHub Actions",
+    message: "Hola, quiero automatizar mis despliegues con CI/CD.",
+  },
+];
+---
+
+<section class="use-cases" id="casos-de-uso">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Casos de uso</span>
+      <h2 class="section-title">¿Cuál es tu situación?</h2>
+      <p class="section-subtitle">
+        Desde despliegues hasta reducción de costos, tenemos experiencia en los escenarios más comunes.
+      </p>
+    </div>
+
+    <div class="cases-grid">
+      {cases.map((c) => (
+        <a
+          href={whatsappLink(c.message)}
+          class="case-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${c.problem} — ${c.solution}`}
+        >
+          <p class="case-problem">{c.problem}</p>
+          <div class="case-arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+          <p class="case-solution">{c.solution}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .use-cases {
+    background: var(--bg-secondary);
+  }
+
+  .cases-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .cases-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .cases-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .case-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+
+  .case-card:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: var(--shadow-accent);
+    transform: translateY(-2px);
+  }
+
+  .case-problem {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .case-arrow {
+    color: var(--accent);
+    margin-block: 0.25rem;
+  }
+
+  .case-solution {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent-light);
+  }
+</style>
