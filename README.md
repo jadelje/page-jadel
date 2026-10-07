@@ -1,6 +1,6 @@
-# DPERSA Cloud & DevOps — Landing Page
+# DPERSA TICS — Landing Page
 
-Landing page estática construida con [Astro](https://astro.build), desplegada en Cloudflare Pages en `cloud-devops.dpersa.com`.
+Landing page estática construida con [Astro](https://astro.build), desplegada en Cloudflare Pages en `tics.dpersa.com`.
 
 ## Stack
 
@@ -71,7 +71,7 @@ En Cloudflare Pages, agregar estas variables en: **Settings → Environment vari
 ### Dominio personalizado
 
 1. En el proyecto de Cloudflare Pages → **Custom domains**
-2. Agregar `cloud-devops.dpersa.com`
+2. Agregar `tics.dpersa.com`
 3. En el DNS de Cloudflare (o tu registrador), agregar el CNAME que indica Cloudflare Pages
 
 ### Actualizaciones
@@ -137,7 +137,7 @@ page-jadel/
 - [ ] Configurar `PUBLIC_CONTACT_EMAIL` en Cloudflare Pages (email real)
 - [ ] Configurar Formspree y reemplazar `YOUR_FORM_ID` en `Contact.astro`
 - [ ] Crear un OG image real y subir a `/public/og-image.png`
-- [ ] Verificar el dominio `cloud-devops.dpersa.com` en Cloudflare
+- [ ] Verificar el dominio `tics.dpersa.com` en Cloudflare
 - [ ] Probar el formulario en producción
 - [ ] Probar links de WhatsApp en mobile
 - [ ] Verificar Lighthouse (objetivo: 90+ en todas las categorías)

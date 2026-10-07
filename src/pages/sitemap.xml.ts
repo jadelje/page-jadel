@@ -1,5 +1,5 @@
 export async function GET(): Promise<Response> {
-  const site = 'https://cloud-devops.dpersa.com';
+  const site = 'https://tics.dpersa.com';
   const now = new Date().toISOString().split('T')[0];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
