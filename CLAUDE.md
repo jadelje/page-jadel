@@ -34,7 +34,7 @@ Copy `.env.example` → `.env` and set the real number before developing locally
 
 ## Deployment
 
-Target: **Cloudflare Pages** at `cloud-devops.dpersa.com`.
+Target: **Cloudflare Pages** at `tics.dpersa.com`.
 
 - Build command: `npm run build`
 - Output directory: `dist`
