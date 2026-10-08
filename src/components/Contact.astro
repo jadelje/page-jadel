@@ -1,11 +1,7 @@
 ---
 import { whatsappLink } from '../utils/whatsapp';
 const waLink = whatsappLink();
-
-// TODO: Replace YOUR_FORM_ID with the actual Formspree form ID
-// Sign up at https://formspree.io and create a form to get the ID
-// Then set the action to: https://formspree.io/f/YOUR_FORM_ID
-const FORMSPREE_ID = "YOUR_FORM_ID";
+const CONTACT_EMAIL = import.meta.env.PUBLIC_CONTACT_EMAIL || "";
 ---
 
 <section class="contact" id="contacto">
@@ -34,13 +30,10 @@ const FORMSPREE_ID = "YOUR_FORM_ID";
       </div>
 
       <div class="contact__form-wrap">
-        <!-- TODO: Formspree integration — replace YOUR_FORM_ID with the real ID from formspree.io -->
         <form
           class="contact-form"
-          action={`https://formspree.io/f/${FORMSPREE_ID}`}
-          method="POST"
-          novalidate
           id="contact-form"
+          novalidate
         >
           <div class="form-group">
             <label for="name" class="form-label">Nombre <span aria-hidden="true">*</span></label>
@@ -68,7 +61,7 @@ const FORMSPREE_ID = "YOUR_FORM_ID";
           </div>
 
           <div class="form-group">
-            <label for="email" class="form-label">Email <span aria-hidden="true">*</span></label>
+            <label for="email" class="form-label">Tu Email <span aria-hidden="true">*</span></label>
             <input
               type="email"
               id="email"
@@ -104,6 +97,28 @@ const FORMSPREE_ID = "YOUR_FORM_ID";
     </div>
   </div>
 </section>
+
+<script define:vars={{ CONTACT_EMAIL }}>
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name    = document.getElementById('name').value.trim();
+    const company = document.getElementById('company').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) return;
+
+    const subject = encodeURIComponent(
+      `Consulta desde tics.dpersa.com — ${name}${company ? ' · ' + company : ''}`
+    );
+    const body = encodeURIComponent(
+      `Nombre: ${name}\nEmpresa: ${company || '—'}\nEmail de contacto: ${email}\n\n${message}`
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  });
+</script>
 
 <style>
   .contact__inner {
